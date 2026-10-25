@@ -10,9 +10,10 @@ export type CartItem = {
 type CartProps = {
   item: CartItem | null;
   onRemove: () => void;
+  onCheckout: () => void;
 };
 
-const Cart_component = ({ item, onRemove }: CartProps) => {
+const Cart_component = ({ item, onRemove, onCheckout }: CartProps) => {
   return (
     <div className="absolute right-0 top-14 z-40 w-[min(22rem,calc(100vw-2rem))] rounded-lg bg-white shadow-xl">
       <h2 className="border-b border-gray-200 px-5 py-4 font-bold text-[hsl(220,13%,13%)]">
@@ -46,6 +47,7 @@ const Cart_component = ({ item, onRemove }: CartProps) => {
           </div>
           <button
             type="button"
+            onClick={onCheckout}
             className="rounded-lg bg-orange-500 px-4 py-3 font-bold text-black hover:bg-orange-600"
           >
             Checkout
