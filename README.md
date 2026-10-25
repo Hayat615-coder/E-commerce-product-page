@@ -1,75 +1,58 @@
-# React + TypeScript + Vite
+# Sneakers Product Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive e-commerce product page for a limited-edition sneaker. Browse product photos, choose a quantity, add the item to the cart, and review or remove it from the cart panel.
 
-Currently, two official plugins are available:
+## Design previews
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### Desktop
 
-## React Compiler
+![Desktop design preview](./src/assets/desktop-design.jpg)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Mobile
 
-## Expanding the ESLint configuration
+![Mobile design preview](./src/assets/mobile-design.jpg)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Responsive layout for mobile and desktop
+- Product image gallery with selectable thumbnails and mobile previous/next controls
+- Gallery overlay with keyboard navigation using the arrow keys and Escape to close
+- Quantity selector with a minimum of zero
+- Add-to-cart button and cart panel with item quantity, total price, and remove action
+- Responsive navigation menu with a selected-link indicator
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Tech stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- React 19 and TypeScript
+- Vite
+- Tailwind CSS 4
 
+## Getting started
+
+Install [Node.js](https://nodejs.org/) and pnpm, then run:
+
+```sh
+pnpm install
+pnpm dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+Open the local URL printed by Vite in your browser.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Available commands
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```sh
+pnpm dev      # Start the development server
+pnpm build    # Type-check and create a production build
+pnpm preview  # Preview the production build locally
+pnpm lint     # Run ESLint
+```
 
+## Project structure
+
+```text
+src/
+  assets/       Product photos and interface icons
+  components/   Header, product gallery, description, cart, and quantity controls
+  App.tsx       Page state and component composition
+  info.tsx      Product details and image data
 ```
